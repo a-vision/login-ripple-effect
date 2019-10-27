@@ -21,7 +21,12 @@
 
   --ripple-border-width: 0px;
   --ripple-border-color: transparent;
-  --ripple-color: #bbb;
+  --ripple-standard-color: rgba(0,0,0,0.01);
+  --ripple-loaded-color: var(--ripple-standard-color);
+  --ripple-keydown-color: var(--ripple-standard-color);
+  --ripple-processing-color: rgba(0,0,0,0.3);
+  --ripple-success-color: rgba(0,160,0,0.3);
+  --ripple-error-color: rgba(160,0,0,0.3);
 
   --input-background-color: #fff;
   --input-border-color: #ccc;
@@ -105,12 +110,12 @@
   from {
     width: var(--container-min-width);
     height: var(--container-min-height);
-    box-shadow: 0 0 10px 10px var(--ripple-color), 0 0 10px 10px var(--ripple-color) inset;
+    box-shadow-blur: 10px;
   }
   to {
     width: 200vw;
     height: 200vw;
-    box-shadow: 0 0 200px 10px var(--ripple-color), 0 0 200px 10px var(--ripple-color) inset;
+    box-shadow-blur: 200px;
   }
 }
 .ripple {
@@ -127,12 +132,27 @@
   border: var(--ripple-border-width) solid var(--ripple-border-color);
   border-radius: 100%;
 
-  box-shadow: 0 0 10px 10px var(--ripple-color), 0 0 10px 10px var(--ripple-color) inset;
+  box-shadow: 0 0 10px 10px var(--ripple-standard-color), 0 0 10px 10px var(--ripple-color) inset;
   z-index: 8000;
 
   animation-name: smallripple;
-  animation-duration: 5s;
+  animation-duration: 4s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.5,0.5,0.5,1);
+}
+.ripple.loaded {
+  box-shadow: 0 0 10px 10px var(--ripple-loaded-color), 0 0 10px 10px var(--ripple-loaded-color) inset;
+}
+.ripple.keydown {
+  box-shadow: 0 0 10px 10px var(--ripple-keydown-color), 0 0 10px 10px var(--ripple-keydown-color) inset;
+}
+.ripple.processing {
+  box-shadow: 0 0 10px 10px var(--ripple-processing-color), 0 0 10px 10px var(--ripple-processing-color) inset;
+}
+.ripple.success {
+  box-shadow: 0 0 10px 10px var(--ripple-success-color), 0 0 10px 10px var(--ripple-success-color) inset;
+}
+.ripple.error {
+  box-shadow: 0 0 10px 10px var(--ripple-error-color), 0 0 10px 10px var(--ripple-error-color) inset;
 }
