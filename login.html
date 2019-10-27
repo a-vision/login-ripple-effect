@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login ripple effect</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <script src="scripts/login.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <form action="#authenticate" method="post" class="login-container" autocomplete="off" id="login-container">
+      <label class="username" for="username">
+        <input type="text" name="username" value="" placeholder="username">
+        <small class="placeholder-text">enter username ...</small>
+      </label>
+      <label class="password" for="password">
+        <input type="text" name="password" value="" placeholder="password">
+        <small class="placeholder-text">enter password ...</small>
+      </label>
+      <label class="submit" for="submit">
+          <button class="submit" type="submit" name="button">LOGIN</button>
+      </label>
+    </form>
+  </body>
+</html>
+<!--
+credits to:
+  (placeholder trick)
+  https://codepen.io/mjunaidi/pen/oNNwwer
+
+
+ -->

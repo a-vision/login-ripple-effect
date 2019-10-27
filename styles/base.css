@@ -1,0 +1,25 @@
+/*******************************************************************************
+*
+* (c) 2019 Copyright A-Vision Software
+*
+* File description :        A-Vision web applications
+*                           (Base styling / non login related)
+*
+* Created by       :        Arnold Velzel
+* Created on       :        27/10/2019
+*
+*******************************************************************************/
+
+html, body {
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: #efefff;
+  font-family: sans-serif;
+}

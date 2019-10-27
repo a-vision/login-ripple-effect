@@ -1,0 +1,138 @@
+/*******************************************************************************
+*
+* (c) 2019 Copyright A-Vision Software
+*
+* File description :        A-Vision web applications
+*                           (Login ripple effect styling)
+*
+* Created by       :        Arnold Velzel
+* Created on       :        27/10/2019
+*
+*******************************************************************************/
+
+:root {
+
+  --container-min-width: 20em;
+  --container-min-height: 20em;
+  --container-background-color: #f4f4f4;
+  --container-border-width: 1px;
+  --container-border-color: #aaa;
+  --container-border-radius: 10em;
+
+  --ripple-border-width: 0px;
+  --ripple-border-color: transparent;
+  --ripple-color: #bbb;
+
+  --input-background-color: #fff;
+  --input-border-color: #ccc;
+  --input-border-radius: 4px;
+
+  --button-background-color: #ccc;
+  --button-border-color: #aaa;
+  --button-border-radius: 4px;
+}
+
+.login-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  line-height: 2em;
+  overflow: hidden;
+
+  min-width: var(--container-min-width);
+  min-height: 9em;
+  background-color: var(--container-background-color);
+  border: var(--container-border-width) solid var(--container-border-color);
+  border-radius: var(--container-border-radius);
+
+  padding: calc((var(--container-min-height) - 9em) /2) 0em;
+  z-index: 9000;
+}
+
+.login-container * {
+  font-family: inherit;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.login-container > label {
+  line-height: 2em;
+  display: block;
+  min-height: 3.5em;
+}
+.login-container > label.submit {
+  min-height: 2em;
+}
+.login-container > label input {
+  line-height: inherit;
+  padding: 0 0.5em;
+  margin: 0 4em;
+  width: calc(var(--container-min-width) - 4em);
+
+  background-color: var(--input-background-color);
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+}
+.login-container label > small {
+  opacity: 0;
+  transition: all 500ms;
+  line-height: 1.5em;
+  font-size: 0.8em;
+  padding-left: calc(0.5em / 0.8);
+  transform: translateX(-100%);
+  display: block;
+  margin: 0 4em;
+}
+.login-container label > input:focus:not(:placeholder-shown) + small.placeholder-text {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.login-container > label button.submit {
+  line-height: inherit;
+  padding: 0 0.5em;
+  margin: 0 4em;
+  width: calc(var(--container-min-width) - 4em);
+
+  background-color: var(--button-background-color);
+  border: 1px solid var(--button-border-color);
+  border-radius: var(--button-border-radius);
+}
+
+
+@keyframes smallripple {
+  from {
+    width: var(--container-min-width);
+    height: var(--container-min-height);
+    box-shadow: 0 0 10px 10px var(--ripple-color), 0 0 10px 10px var(--ripple-color) inset;
+  }
+  to {
+    width: 200vw;
+    height: 200vw;
+    box-shadow: 0 0 200px 10px var(--ripple-color), 0 0 200px 10px var(--ripple-color) inset;
+  }
+}
+.ripple {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  line-height: 2em;
+  overflow: hidden;
+
+  min-width: calc(var(--container-min-width)/2);
+  min-height: calc(var(--container-min-height)/2);
+  background-color: transparent;
+  border: var(--ripple-border-width) solid var(--ripple-border-color);
+  border-radius: 100%;
+
+  box-shadow: 0 0 10px 10px var(--ripple-color), 0 0 10px 10px var(--ripple-color) inset;
+  z-index: 8000;
+
+  animation-name: smallripple;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.5,0.5,0.5,1);
+}
